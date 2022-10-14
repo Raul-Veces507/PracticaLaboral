@@ -6,10 +6,22 @@ export const navbarData:INavbarData[] =[
         label:'Dashboard'
     },
     {
-        routeLink:'/CrearJovenes',
+        routeLink:'joven',
         icon:'fa fa-user-plus',
-   
-        label:'Registrar Joven'
+        label:'Jovenes',
+        items:[
+            {
+                routeLink:'joven/RegistrarJoven',
+                icon:'fa fa-user-plus',
+                label:'Registrar Joven',
+            },
+            {
+                routeLink:'joven/CrearJovenes',
+                icon:'fa fa-user-plus',
+                label:'Listado de  Joven',
+            }
+        
+        ]
     },  
     {
 

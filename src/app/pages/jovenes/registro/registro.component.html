@@ -1,0 +1,161 @@
+<br>
+
+<div class="container">
+
+    <p-card header="Bienvenido" [style]="{'width': '100%', 'margin-bottom': '2em'}">
+     
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">PRIMER NOMBRE</label>
+                    <input type="text" class="form-control"  autocomplete="off" id="nombre">
+                   
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">SEGUNDO NOMBRE</label>
+                    <input type="text"  class="form-control" autocomplete="off" id="nombre2">
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">PRIMER APELLIDO</label>
+                    <input type="text"  class="form-control" autocomplete="off"
+                        id="apellido">
+                       
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">SEGUNDO APELLIDO</label>
+                    <input type="text" class="form-control" id="apellido2" autocomplete="off"
+                        >
+                  
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">CEDULA</label>
+                    <input type="text" class="form-control" id="cedula" autocomplete="off">
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                   <label for="recipient-name" class="col-form-label">Sexo</label>
+                   <select  id="tipoc" class="form-select">
+                       <option value="1">Masculino</option>
+                       <option value="2">Femenino</option>
+                       <option value="3">No especificado</option>
+                   </select>
+
+               </div> 
+
+           </div> 
+         
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">TELEFONO</label>
+                    <input type="number" class="form-control" id="telefono" autocomplete="off"
+                     >
+                    
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">CELULAR</label>
+                    <input type="number" class="form-control"  id="celular" autocomplete="off">
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">FECHA DE NACIMIENTO</label>
+                    <input type="date" class="form-control" id="fechan" 
+                    autocomplete="off">
+                 
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Acudiente</label>
+                    <input type="text" class="form-control"  id="celular" autocomplete="off">
+                    
+                </div>
+            </div>
+          
+        </div>
+
+     
+        <div class="row g-3">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">DIRECCION</label>
+                    <input type="text"  class="form-control" id="direccion"
+                    autocomplete="off">
+                  
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="text-center">
+
+            <div class="row g-3">
+                <div class="mb-3">
+            <div class="file-select" id="src-file1" >
+                <input  type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName">
+                <br>
+          
+              </div>
+              <br>
+              <br>
+              <img class="imagen" src="{{seccionimg}}" alt="">
+            </div>
+              <!-- <div class="row g-3">
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Imagen</label>
+                <input type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName"
+                    class="form-control">
+                <br>
+                <img class="imagen" src="{{seccionimg}}" alt="">
+            </div> -->
+        </div>
+        </div>
+
+
+
+
+    
+
+        <br><br>
+        <div class="col-12 text-center">
+            <button  style="width: 80% ;" pButton pRipple type="submit" label="Crear usuario"
+                class="p-button-raised p-button-help"></button>
+        </div>
+
+    
+    </p-card>
+    <br><br>
+</div>

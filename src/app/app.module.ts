@@ -17,13 +17,13 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { PrimeModuleModule } from './prime-module/prime-module.module';
 import { ModuloPrincipalModule } from './pages/modulo-principal.module';
-export function tokenGetter(){
+export function tokenGetter() {
   return localStorage.getItem('token');
 }
 @NgModule({
   declarations: [
     AppComponent,
-   
+
 
   ],
   imports: [
@@ -32,17 +32,17 @@ export function tokenGetter(){
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-PrimeModuleModule,
+    PrimeModuleModule,
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
     ModuloPrincipalModule,
     LoginModule,
     JwtModule.forRoot({
-      config:{
+      config: {
         tokenGetter: tokenGetter,
-        allowedDomains:['http://127.0.0.1:8000/api/login'],
-        disallowedRoutes:['http://example.com/examplebadroute/']
+        allowedDomains: ['http://127.0.0.1:8000/api/login'],
+        disallowedRoutes: ['http://example.com/examplebadroute/']
       }
     })
   ],

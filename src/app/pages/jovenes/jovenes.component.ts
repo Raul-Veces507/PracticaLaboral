@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JovenesComponent implements OnInit {
 
+  public usuario:any
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  repoortes(data:any){
+
+  }
 }
