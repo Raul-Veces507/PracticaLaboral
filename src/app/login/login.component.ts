@@ -1,15 +1,80 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  styles: [`
+  :host ::ng-deep button {
+      margin-right: .25em;
+  }
+`],
+  providers: [ConfirmationService, MessageService]
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  public user:string=''
+  public pass:string=''
+  public displayMaximizable: boolean=false;
+  constructor(private authService: AuthService, 
+              private router: Router, 
+              private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
 
+
+  login(){
+
+    // if(this.user=='' || this.pass==''){
+    //   const titulo = 'Usuario o contraseña no pueden estar vacios'
+    //   this.Fallido(titulo)
+    // }else{
+      this.displayMaximizable = true;
+      const user = { user: this.user, pw: this.pass };
+
+      
+  
+      // this.authService.login(user).subscribe(res => {
+
+     
+      //     localStorage.setItem('token', res.token);
+      //     localStorage.setItem('nombre', res.LoginResp[0].nombre);
+      //     localStorage.setItem('apellido', res.LoginResp[0].apellido);
+      //     localStorage.setItem('activida', res.LoginResp[0].activa);
+      //     localStorage.setItem('role', res.LoginResp[0].role);
+      //     localStorage.setItem('numEmpleado', res.LoginResp[0].nemp);
+    
+      //     this.authService.setToken(res.token);
+      //     this.displayMaximizable = false;
+           this.router.navigate(['/inicio']);
+        
+
+       
+       
+  
+  
+      // }, (err: any) => {
+      //   this.displayMaximizable = false;
+      //   this.user = '';
+      //   this.pass = '';
+      // });
+      
+    // }
+
+  }
+
+
+  Fallido(titulo: any) {
+
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: titulo });
+  }
+
+
+
+  showMaximizableDialog() {
+
+}
 }

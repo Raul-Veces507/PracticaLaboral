@@ -1,1 +1,46 @@
-<p>login works!</p>
+
+
+
+<div class="login">
+    
+
+    <form action="post" id="login-form" autocomplete="off">
+        <img class="img" src="" alt="">
+        <div class="input-box">
+            <input autocomplete="off" name="user" [(ngModel)]="user" placeholder="Username" type="text">
+
+        </div>
+
+        <div class="input-box">
+            <input autocomplete="off" type="password" [(ngModel)]="pass" placeholder="Password"  name="pass">
+
+        </div>
+        <br>
+        <button (click)="login()" type="submit" class="login-btn">Iniciar sesion</button>
+    </form>
+</div>
+
+
+
+      <!-- Toast de eventos -->
+      <p-toast position="bottom-center"></p-toast>
+
+
+
+
+<p-dialog [(visible)]="displayMaximizable" [closable]="false" [modal]="true" styleClass="myClasslogin" >
+    <!-- <div class="text-center">
+        <div class="loading loading--full-height"></div>
+        
+        
+    </div> -->
+    <div class="container">
+        <h1 style="color: rgba(35, 95, 216, 0.77);" >Cargando</h1>
+    <div class="point"></div>
+    <div class="point"></div>
+    <div class="point"></div>
+    <div class="point"></div>
+    <div class="point"></div>
+</div>
+
+</p-dialog>
