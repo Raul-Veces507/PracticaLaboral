@@ -1,29 +1,45 @@
 
+<nav class="navbar bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/CiudadNino.png" alt="Bootstrap" width="50" height="44" style="padding-left: 12px;" >
+      </a>
+    </div>
+  </nav>
+  <img src="../../assets/fondo2.jpg" class="img-fluid" alt="..." width="100%">
 
+ <div class="login">
+   
 
-<div class="login">
-    
-
-    <form action="post" id="login-form" autocomplete="off">
+    <form  action="post" id="login-form" autocomplete="off">
+        <h3 class="welcome text-center  mt-lg-5 mt-4 " style="font-family: 'Montserrat', sans-serif;"> Bienvenido al sistema de ingreso</h3>
         <img class="img" src="" alt="">
-        <div class="input-box">
-            <input autocomplete="off" name="user" [(ngModel)]="user" placeholder="Username" type="text">
-
+        
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input class="texto" autocomplete="off" name="user" [(ngModel)]="user" placeholder="Usuario" type="text" >
         </div>
-
-        <div class="input-box">
-            <input autocomplete="off" type="password" [(ngModel)]="pass" placeholder="Password"  name="pass">
-
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input class="texto" autocomplete="off" type="password" [(ngModel)]="pass" placeholder="Contraseña"  name="pass">
+      
         </div>
-        <br>
-        <button (click)="login()" type="submit" class="login-btn">Iniciar sesion</button>
+        <div class=" btn-btn tex-center"><button (click)="login()" type="submit" class="login-btn ">Iniciar sesion</button>
+            <br>
+            <br>
+            <a class="enlace text-center" href="">Si no estas registrado ingresa aqui!</a>
+        </div>
+        
+        
+       
     </form>
 </div>
 
+  
 
 
       <!-- Toast de eventos -->
-      <p-toast position="bottom-center"></p-toast>
+      <!-- <p-toast position="bottom-center"></p-toast>
 
 
 
@@ -34,7 +50,7 @@
         
         
     </div> -->
-    <div class="container">
+    <!-- <div class="container">
         <h1 style="color: rgba(35, 95, 216, 0.77);" >Cargando</h1>
     <div class="point"></div>
     <div class="point"></div>
@@ -43,4 +59,4 @@
     <div class="point"></div>
 </div>
 
-</p-dialog>
+</p-dialog> --> 
