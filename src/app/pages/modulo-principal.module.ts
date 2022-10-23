@@ -12,9 +12,10 @@ import { RegistroComponent } from './jovenes/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListadoComponent } from './apoyos/listado/listado.component';
 import { ListadoActividadComponent } from './actividades/listado-actividad/listado-actividad.component';
+import { EditorComponent } from './jovenes/editor/editor.component';
 
 @NgModule({
-  declarations: [ActividadesComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent, ListadoComponent, ListadoActividadComponent],
+  declarations: [ActividadesComponent,EditorComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent, ListadoComponent, ListadoActividadComponent],
   imports: [
 PrimeModuleModule,
 CommonModule,

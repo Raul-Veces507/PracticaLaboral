@@ -1,1 +1,224 @@
-<p>editor works!</p>
+<br>
+
+<div class="container">
+
+    <p-card header="Bienvenido" [style]="{'width': '100%', 'margin-bottom': '2em'}">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Primer Nombre</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="nombre1" type="text" class="form-control"  autocomplete="off" id="nombre">
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Segundo Nombre</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="nombre2" type="text"  class="form-control" autocomplete="off" id="nombre2">
+                   
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Primer Apellido</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="apellido1"  type="text"  class="form-control" autocomplete="off">
+                       
+                       
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Segundo Apellido</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="apellido2" type="text" class="form-control" id="apellido2" autocomplete="off">
+                        
+                  
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Cedula</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="Cedula" type="text" class="form-control" id="cedula" autocomplete="off">
+                   
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                   <label for="recipient-name" class="col-form-label">Sexo</label>
+                   <select [(ngModel)]="sexo"  id="tipoc" class="form-select">
+                       <option value="1">Masculino</option>
+                       <option value="2">Femenino</option>
+                       <option value="3">No especificado</option>
+                   </select>
+                  
+               </div> 
+
+           </div> 
+         
+        </div>
+
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Fecha de Nacimiento</label>
+                    <input [(ngModel)]="Nacimiento" type="date" class="form-control" id="fechan" 
+                    autocomplete="off">
+                   
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Familiar Responsable</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="Familiar" type="text" class="form-control"  id="celular" autocomplete="off">
+                   
+                </div>
+            </div>
+          
+        </div>
+
+     
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Direccíon</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  [(ngModel)]="Direccion" type="text"  class="form-control" id="direccion"
+                    autocomplete="off">
+                 
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Organo o autoridad que refiere</label>
+                    <select [(ngModel)]="Organo"  id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Juzgado de niñez y adolescencia</option>
+                        <option value="2">Senniaf Sede</option>
+                        <option value="3">Senniaf Panama Oeste </option>
+                    </select>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Fecha de ingreso</label>
+                    <input [(ngModel)]="FechaIngreso" type="date" class="form-control" id="fechan" 
+                    autocomplete="off">
+                   
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Escolaridad</label>
+                    <select  [(ngModel)]="Escolaridad" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Primer Grado</option>
+                        <option value="2">Segundo Grado</option>
+                        <option value="3">Tercer Grado</option>
+                        <option value="4">cuarto Grado</option>
+                        <option value="5">quinto Grado</option>
+                        <option value="6">Sexto Grado</option>
+                        <option value="7">Septimo Grado</option>
+                        <option value="8">Octavo Grado</option>
+                        <option value="9">Noveno Grado</option>
+                        <option value="10">Decimo Grado</option>
+                        <option value="11">Undecimo Grado</option>
+                        <option value="12">Duodecimo Grado</option>
+                    </select>
+                   
+                </div>
+            </div>
+
+        </div>
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Etnia</label>
+                    <select [(ngModel)]="Etnia" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Ngöbe-Buglé</option>
+                        <option value="2">Naso-Teribe</option>
+                        <option value="3">Bri-bri</option>
+                        <option value="4">Emberá</option>
+                        <option value="5">Wounaan</option>
+                        <option value="6">Gunas</option>
+                        <option value="7">mestizos</option>
+                        <option value="8">mulatos</option>
+                        
+                        
+                        
+                        
+                    </select>
+                  
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Motivo de ingreso</label>
+                    <select [(ngModel)]="Motivo" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Protección</option>
+                        <option value="2">Maltrato físico</option>
+                        <option value="3">Abuso</option>
+                        <option value="4">Maltrato emocional</option>
+                        <option value="5">Negligencia</option>
+                        <option value="6">Abandono</option>
+                     
+                        
+                        
+                        
+                        
+                    </select>
+                  
+                </div>
+            </div>
+            
+
+        </div>
+        <br>
+        <div class="text-center">
+
+            <div class="row g-3">
+                <div class="mb-3">
+            <div class="file-select" id="src-file1" >
+                <input [(ngModel)]="imagen"  type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName">
+                <br>
+          
+              </div>
+              <br>
+              <br>
+              <img class="imagen" src="{{seccionimg}}" alt="">
+            </div>
+        
+        </div>
+        </div>
+
+
+    
+
+        <br><br>
+        <div class="col-12 text-center">
+            <button style="width: 80% ;" pButton pRipple type="submit" label="Registrar"
+                class="p-button-raised p-button-help"></button>
+        </div>
+
+    
+    </p-card>
+    <br><br>
+
+
+          <!-- Toast de eventos -->
+          <p-toast position="bottom-center"></p-toast>
+</div>

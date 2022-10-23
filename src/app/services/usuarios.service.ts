@@ -22,6 +22,13 @@ export class UsuariosService {
     return  this.http.post<any>(`${url}registro`,fd);
   }
 
+  muchachoId(data:any): Observable<any>{
+   
+   
+    return  this.http.post<any>(`${url}muchachoId`,data);
+  }
+
+
   muchachos(): Observable<any>{
   
 
