@@ -9,6 +9,9 @@ import { JovenesComponent } from './jovenes/jovenes.component';
 import { Menu2Component } from '../shared/menu2/menu2.component';
 import { EditorComponent } from './jovenes/editor/editor.component';
 import { RegistroComponent } from './jovenes/registro/registro.component';
+import { ListadoComponent } from './apoyos/listado/listado.component';
+
+import { ListadoActividadComponent } from './actividades/listado-actividad/listado-actividad.component';
 
 const rutas: Routes = [
   {
@@ -16,12 +19,14 @@ const rutas: Routes = [
     component: Menu2Component,
     children: [
  
-      {path:'Actividades',component:ActividadesComponent},
-      {path:'Apoyos',component:ApoyosComponent},
+      {path:'Actividades/Actividades',component:ActividadesComponent},
+      {path:'Actividades/Listado',component:ListadoActividadComponent},
+      {path:'Apoyos/Apoyos',component:ApoyosComponent},
+      {path:'Apoyos/Listado',component:ListadoComponent},
       { path: 'inicio', component: DashboardComponent },
       { path: 'joven/CrearJovenes', component: JovenesComponent },
       { path: 'CrearUsuarios', component: UsuariosComponent },
-      { path: 'editarJoven', component: EditorComponent},
+      { path: 'editarJoven/:id', component: EditorComponent},
       { path: 'joven/RegistrarJoven', component: RegistroComponent },
 
 

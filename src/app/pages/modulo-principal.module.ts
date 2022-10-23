@@ -9,14 +9,17 @@ import { JovenesComponent } from './jovenes/jovenes.component';
 
 import { PrimeModuleModule } from '../prime-module/prime-module.module';
 import { RegistroComponent } from './jovenes/registro/registro.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListadoComponent } from './apoyos/listado/listado.component';
+import { ListadoActividadComponent } from './actividades/listado-actividad/listado-actividad.component';
 
 @NgModule({
-  declarations: [ActividadesComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent],
+  declarations: [ActividadesComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent, ListadoComponent, ListadoActividadComponent],
   imports: [
 PrimeModuleModule,
 CommonModule,
 FormsModule,
+ReactiveFormsModule
   ]
 })
 export class ModuloPrincipalModule { }

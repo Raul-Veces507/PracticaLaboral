@@ -3,21 +3,23 @@
 <div class="container">
 
     <p-card header="Bienvenido" [style]="{'width': '100%', 'margin-bottom': '2em'}">
-     
+        <form [formGroup]="miFormulario" (ngSubmit)="registrase()">
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">PRIMER NOMBRE</label>
-                    <input type="text" class="form-control"  autocomplete="off" id="nombre">
-                   
+                    <label for="recipient-name" class="col-form-label">Primer Nombre</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="nombre1" type="text" class="form-control"  autocomplete="off" id="nombre">
+                    <span *ngIf="campoNoValido('nombre1')" class="form-text text-danger">*coloque un nombre
+                        valido
+                    </span>
 
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">SEGUNDO NOMBRE</label>
-                    <input type="text"  class="form-control" autocomplete="off" id="nombre2">
-                    
+                    <label for="recipient-name" class="col-form-label">Segundo Nombre</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="nombre2" type="text"  class="form-control" autocomplete="off" id="nombre2">
+                   
 
                 </div>
             </div>
@@ -26,17 +28,19 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">PRIMER APELLIDO</label>
-                    <input type="text"  class="form-control" autocomplete="off"
+                    <label for="recipient-name" class="col-form-label">Primer Apellido</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="apellido1"  type="text"  class="form-control" autocomplete="off"
                         id="apellido">
-                       
+                        <span *ngIf="campoNoValido('apellido1')" class="form-text text-danger">*coloque un apellido
+                            valido
+                        </span>
 
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">SEGUNDO APELLIDO</label>
-                    <input type="text" class="form-control" id="apellido2" autocomplete="off"
+                    <label for="recipient-name" class="col-form-label">Segundo Apellido</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="apellido2" type="text" class="form-control" id="apellido2" autocomplete="off"
                         >
                   
 
@@ -47,61 +51,50 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">CEDULA</label>
-                    <input type="text" class="form-control" id="cedula" autocomplete="off">
-
+                    <label for="recipient-name" class="col-form-label">Cedula</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Cedula" type="text" class="form-control" id="cedula" autocomplete="off">
+                    <span *ngIf="campoNoValido('Cedula')" class="form-text text-danger">*coloque una cedula 
+                        valida
+                    </span>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
                    <label for="recipient-name" class="col-form-label">Sexo</label>
-                   <select  id="tipoc" class="form-select">
+                   <select formControlName="sexo"  id="tipoc" class="form-select">
                        <option value="1">Masculino</option>
                        <option value="2">Femenino</option>
                        <option value="3">No especificado</option>
                    </select>
-
+                   <span *ngIf="campoNoValido('sexo')" class="form-text text-danger">*coloque un genero
+                    valido
+                </span>
                </div> 
 
            </div> 
          
         </div>
 
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">TELEFONO</label>
-                    <input type="number" class="form-control" id="telefono" autocomplete="off"
-                     >
-                    
-
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">CELULAR</label>
-                    <input type="number" class="form-control"  id="celular" autocomplete="off">
-                    
-                </div>
-            </div>
-
-        </div>
 
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">FECHA DE NACIMIENTO</label>
-                    <input type="date" class="form-control" id="fechan" 
+                    <label for="recipient-name" class="col-form-label">Fecha de Nacimiento</label>
+                    <input formControlName="Nacimiento" type="date" class="form-control" id="fechan" 
                     autocomplete="off">
-                 
+                    <span *ngIf="campoNoValido('Nacimiento')" class="form-text text-danger">*coloque una fecha
+                        valida
+                    </span>
 
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">Acudiente</label>
-                    <input type="text" class="form-control"  id="celular" autocomplete="off">
-                    
+                    <label for="recipient-name" class="col-form-label">Familiar Responsable</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Familiar" type="text" class="form-control"  id="celular" autocomplete="off">
+                    <span *ngIf="campoNoValido('Familiar')" class="form-text text-danger">*coloque un Familar
+                   
+                    </span>
                 </div>
             </div>
           
@@ -109,14 +102,115 @@
 
      
         <div class="row g-3">
-            <div class="col">
+            <div class="col-6">
                 <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">DIRECCION</label>
-                    <input type="text"  class="form-control" id="direccion"
+                    <label for="recipient-name" class="col-form-label">Direccíon</label>
+                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Direccion" type="text"  class="form-control" id="direccion"
                     autocomplete="off">
-                  
+                    <span *ngIf="campoNoValido('Direccion')" class="form-text text-danger">*coloque una Direccion
+                        valida
+                    </span>
                 </div>
             </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Organo o autoridad que refiere</label>
+                    <select formControlName="Organo"  id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Juzgado de niñez y adolescencia</option>
+                        <option value="2">Senniaf Sede</option>
+                        <option value="3">Senniaf Panama Oeste </option>
+                    </select>
+                    <span *ngIf="campoNoValido('Organo')" class="form-text text-danger">*coloque un oganismo
+                        valido
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Fecha de ingreso</label>
+                    <input formControlName="FechaIngreso" type="date" class="form-control" id="fechan" 
+                    autocomplete="off">
+                    <span *ngIf="campoNoValido('FechaIngreso')" class="form-text text-danger">*coloque una fecha
+                        valida
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Escolaridad</label>
+                    <select  formControlName="Escolaridad" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Primer Grado</option>
+                        <option value="2">Segundo Grado</option>
+                        <option value="3">Tercer Grado</option>
+                        <option value="4">cuarto Grado</option>
+                        <option value="5">quinto Grado</option>
+                        <option value="6">Sexto Grado</option>
+                        <option value="7">Septimo Grado</option>
+                        <option value="8">Octavo Grado</option>
+                        <option value="9">Noveno Grado</option>
+                        <option value="10">Decimo Grado</option>
+                        <option value="11">Undecimo Grado</option>
+                        <option value="12">Duodecimo Grado</option>
+                    </select>
+                    <span *ngIf="campoNoValido('Escolaridad')" class="form-text text-danger">*coloque una escolaridad
+                        valida
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Etnia</label>
+                    <select formControlName="Etnia" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Ngöbe-Buglé</option>
+                        <option value="2">Naso-Teribe</option>
+                        <option value="3">Bri-bri</option>
+                        <option value="4">Emberá</option>
+                        <option value="5">Wounaan</option>
+                        <option value="6">Gunas</option>
+                        <option value="7">mestizos</option>
+                        <option value="8">mulatos</option>
+                        
+                        
+                        
+                        
+                    </select>
+                    <span *ngIf="campoNoValido('Etnia')" class="form-text text-danger">*coloque un etnia
+                        valida
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Motivo de ingreso</label>
+                    <select formControlName="Motivo" id="tipoc" class="form-select">
+                        <option></option>
+                        <option value="1">Protección</option>
+                        <option value="2">Maltrato físico</option>
+                        <option value="3">Abuso</option>
+                        <option value="4">Maltrato emocional</option>
+                        <option value="5">Negligencia</option>
+                        <option value="6">Abandono</option>
+                     
+                        
+                        
+                        
+                        
+                    </select>
+                    <span *ngIf="campoNoValido('Motivo')" class="form-text text-danger">*coloque un motivo
+                        valido
+                    </span>
+                </div>
+            </div>
+            
 
         </div>
         <br>
@@ -125,7 +219,7 @@
             <div class="row g-3">
                 <div class="mb-3">
             <div class="file-select" id="src-file1" >
-                <input  type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName">
+                <input formControlName="imagen"  type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName">
                 <br>
           
               </div>
@@ -133,29 +227,35 @@
               <br>
               <img class="imagen" src="{{seccionimg}}" alt="">
             </div>
-              <!-- <div class="row g-3">
-            <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Imagen</label>
-                <input type="file" [(ngModel)]="filterName" (change)="evento($event)" #takeInput name="filterName"
-                    class="form-control">
-                <br>
-                <img class="imagen" src="{{seccionimg}}" alt="">
-            </div> -->
+        
         </div>
         </div>
 
 
 
-
+        <div class="my-2 text-center" *ngIf="miFormulario.invalid">
+            <span class="form-text text-danger ">
+                *Por favor llenar los campos de forma correcta para completar registro.
+            </span>
+        </div>
+        <div class="my-2 text-center">
+            <span *ngIf="miFormulario.valid" class="form-text text-success">
+                *Todo correcto para registro
+            </span>
+        </div>
     
 
         <br><br>
         <div class="col-12 text-center">
-            <button  style="width: 80% ;" pButton pRipple type="submit" label="Crear usuario"
+            <button [disabled]="miFormulario.invalid"  style="width: 80% ;" pButton pRipple type="submit" label="Registrar"
                 class="p-button-raised p-button-help"></button>
         </div>
 
-    
+        </form>
     </p-card>
     <br><br>
+
+
+          <!-- Toast de eventos -->
+          <p-toast position="bottom-center"></p-toast>
 </div>

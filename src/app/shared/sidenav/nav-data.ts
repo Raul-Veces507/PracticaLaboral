@@ -27,21 +27,49 @@ export const navbarData:INavbarData[] =[
 
         routeLink:'/Actividades',
         icon:'fa  fa-universal-access',
-        label:'Actividades'
-    },
-    {
-        routeLink:'/CrearUsuarios',
-        icon:'fa fa-users',
-        label:'Crear Usuarios',
-       
+        label:'Actividades',
+        items:[
+            {
+                routeLink:'Actividades/Actividades',
+                icon:'fa fa-user-plus',
+                label:'Registrar Actividades',
+            },
+            {
+                routeLink:'Actividades/Listado',
+                icon:'fa fa-user-plus',
+                label:'Listado de actividades',
+            }
+        
+        ]
+        
     },
     {
         routeLink:'/Apoyos',
         icon:'fa fa-coins',
      
         label:'Apoyos',
+        items:[
+            {
+                routeLink:'Apoyos/Apoyos',
+                icon:'fa fa-user-plus',
+                label:'Registrar Apoyos',
+            },
+            {
+                routeLink:'Apoyos/Listado',
+                icon:'fa fa-user-plus',
+                label:'Listado de Apoyos',
+            }
+        
+        ]
       
     },
+    {
+        routeLink:'/CrearUsuarios',
+        icon:'fa fa-users',
+        label:'Crear Usuarios',
+       
+    }
+   
 
 ]
 

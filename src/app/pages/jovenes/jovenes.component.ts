@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuariosService } from '../../services/usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-jovenes',
@@ -8,12 +10,24 @@ import { Component, OnInit } from '@angular/core';
 export class JovenesComponent implements OnInit {
 
   public usuario:any
-  constructor() { }
+  constructor(private service:UsuariosService,private nav:Router) { }
 
   ngOnInit(): void {
+    this.service.muchachos().subscribe((res)=>{
+      console.log(res);
+      if(res.ok==true){
+
+        this.usuario=res['mensaje']
+      }
+   
+    })
   }
 
-  repoortes(data:any){
+  Editar(data:any){
+this.nav.navigate([`/editarJoven/${data}`])
+  }
+
+  Eliminar(data:any){
 
   }
 }

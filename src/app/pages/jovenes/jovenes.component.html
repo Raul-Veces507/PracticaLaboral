@@ -30,15 +30,13 @@
         </ng-template>
         <ng-template pTemplate="body" let-veh>
             <tr>
-                <td>{{veh.nombre}} </td>
-                <td>{{veh.apellido}} </td>
-                <td>{{veh.email}}</td>
-                <td>{{veh.telefono}}</td>
-                <td>{{veh.celular}}</td>
-                <td>{{veh.cedula}}</td>
-                <td> <button (click)="repoortes(veh.id)"  pButton class="p-button-waring" type="button"
+                <td>{{veh.Nombre}} </td>
+                <td>{{veh.Apellido}} </td>
+                <td>{{veh.Cedula}}</td>
+                <td>{{veh.Acudiente}}</td>
+                <td> <button (click)="Editar(veh.id)" icon="pi pi-user-edit"  pButton class="p-button-waring" type="button"
                         label="Editar"></button></td>
-                        <td> <button (click)="repoortes(veh.id)"  pButton class="p-button-waring" type="button"
+                        <td> <button (click)="Eliminar(veh.id)" icon="pi pi-trash"  pButton class="p-button-danger" type="button"
                             label="Eliminar"></button></td>
     
 

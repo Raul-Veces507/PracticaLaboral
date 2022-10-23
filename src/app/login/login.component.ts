@@ -28,41 +28,39 @@ export class LoginComponent implements OnInit {
 
   login(){
 
-    // if(this.user=='' || this.pass==''){
-    //   const titulo = 'Usuario o contraseña no pueden estar vacios'
-    //   this.Fallido(titulo)
-    // }else{
+    if(this.user=='' || this.pass==''){
+      const titulo = 'Usuario o contraseña no pueden estar vacios'
+      this.Fallido(titulo)
+    }else{
       this.displayMaximizable = true;
-      const user = { user: this.user, pw: this.pass };
+      const user = { user: this.user, pass: this.pass };
 
       
   
-      // this.authService.login(user).subscribe(res => {
-
-     
-      //     localStorage.setItem('token', res.token);
-      //     localStorage.setItem('nombre', res.LoginResp[0].nombre);
-      //     localStorage.setItem('apellido', res.LoginResp[0].apellido);
-      //     localStorage.setItem('activida', res.LoginResp[0].activa);
-      //     localStorage.setItem('role', res.LoginResp[0].role);
-      //     localStorage.setItem('numEmpleado', res.LoginResp[0].nemp);
-    
-      //     this.authService.setToken(res.token);
-      //     this.displayMaximizable = false;
+      this.authService.login(user).subscribe(res => {
+        if(res.ok==true){
+          localStorage.setItem('token', res.token);
+          localStorage.setItem('role', res.mensaje[0].Role);
+          this.authService.setToken(res.token);
+          this.displayMaximizable = false;
            this.router.navigate(['/inicio']);
+        }else{
+          this.Fallido('Usuario no encontrado')
+        }
+      
         
 
        
        
   
   
-      // }, (err: any) => {
-      //   this.displayMaximizable = false;
-      //   this.user = '';
-      //   this.pass = '';
-      // });
+      }, (err: any) => {
+        this.displayMaximizable = false;
+        this.user = '';
+        this.pass = '';
+      });
       
-    // }
+    }
 
   }
 
