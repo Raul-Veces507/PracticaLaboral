@@ -38,7 +38,10 @@ export class LoginComponent implements OnInit {
       
   
       this.authService.login(user).subscribe(res => {
+<<<<<<< HEAD
         if(res.ok==true){
+=======
+>>>>>>> 4337b0b46a5eaf3ec772c29aa164987608e3c8a7
           localStorage.setItem('token', res.token);
           localStorage.setItem('role', res.mensaje[0].Role);
           this.authService.setToken(res.token);

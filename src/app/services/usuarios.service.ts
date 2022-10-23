@@ -21,6 +21,7 @@ export class UsuariosService {
 
     return  this.http.post<any>(`${url}registro`,fd);
   }
+<<<<<<< HEAD
 
   muchachos(): Observable<any>{
   
@@ -30,4 +31,6 @@ export class UsuariosService {
 
 
 
+=======
+>>>>>>> 4337b0b46a5eaf3ec772c29aa164987608e3c8a7
 }

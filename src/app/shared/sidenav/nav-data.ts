@@ -28,6 +28,7 @@ export const navbarData:INavbarData[] =[
         routeLink:'/Actividades',
         icon:'fa  fa-universal-access',
         label:'Actividades',
+<<<<<<< HEAD
         items:[
             {
                 routeLink:'Actividades/Actividades',
@@ -41,6 +42,8 @@ export const navbarData:INavbarData[] =[
             }
         
         ]
+=======
+>>>>>>> 4337b0b46a5eaf3ec772c29aa164987608e3c8a7
         
     },
     {

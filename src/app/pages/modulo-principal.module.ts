@@ -10,8 +10,11 @@ import { JovenesComponent } from './jovenes/jovenes.component';
 import { PrimeModuleModule } from '../prime-module/prime-module.module';
 import { RegistroComponent } from './jovenes/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { ListadoComponent } from './apoyos/listado/listado.component';
 import { ListadoActividadComponent } from './actividades/listado-actividad/listado-actividad.component';
+=======
+>>>>>>> 4337b0b46a5eaf3ec772c29aa164987608e3c8a7
 
 @NgModule({
   declarations: [ActividadesComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent, ListadoComponent, ListadoActividadComponent],
