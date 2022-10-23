@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
+  public ApoyoEconomico:boolean=false
+  public ApoyoMaterial:boolean=false
+  public ActividatesMAteriales:any
+  public ActividatesEconomicas:any
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  Economico(){
+    this.ApoyoEconomico=true
+    this.ApoyoMaterial=false
+
+  }
+
+  
+  Material(){
+    this.ApoyoEconomico=false
+    this.ApoyoMaterial=true
+  }
 }
