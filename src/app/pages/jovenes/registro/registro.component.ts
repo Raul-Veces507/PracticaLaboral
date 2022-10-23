@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { TRISTATECHECKBOX_VALUE_ACCESSOR } from 'primeng/tristatecheckbox';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-registro',
@@ -16,17 +19,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class RegistroComponent implements OnInit {
 
 
-ngOnInit(): void {
-  
-}
-  constructor(
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService,
-    private sanitizer: DomSanitizer) { }
-
-  
+  @ViewChild('takeInput', { static: false })
   InputVar: any;
-
   public verimage: any = []
   public productos: any;
   public Seccioncrear = ''
@@ -35,29 +29,78 @@ ngOnInit(): void {
   public displayModal: boolean = false;
   public displayModal1: boolean = false;
   public categorias: any
-
+public formulari:any
   public seccionimg = ''
   public idmenu: any
 
+  constructor(
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+    private sanitizer: DomSanitizer,
+    private fb: FormBuilder,
+    private service:UsuariosService) { }
+
+  
+    ngOnInit(): void {
+  
+    }
 
 
 
 
 
+  miFormulario: FormGroup = this.fb.group({
+    nombre1: ['', [Validators.required]],
+    nombre2: ['', ],
+    apellido1: ['', [Validators.required]],
+    apellido2: ['', ],
+    Cedula: ['', [Validators.required]],
+    sexo: ['', [Validators.required]],
+    Nacimiento: ['', [Validators.required]],
+    Familiar: ['', [Validators.required]],
+    Direccion: ['', [Validators.required]],
+    Organo: ['', [Validators.required]],
+    FechaIngreso: ['', [Validators.required]],
+    Escolaridad: ['', [Validators.required]],
+    Etnia: ['', [Validators.required]],
+    Motivo: ['', [Validators.required]],
+    imagen: ['', []],
+ 
 
 
 
-  Cancelarmodal() {
-    this.InputVar.nativeElement.value = "";
-    this.filterName = ""
-    this.Seccioncrear = ""
-    this.displayModal1 = false
-    this.seccionimg = ""
+  })
 
-    this.displayModal = false
-    const titulo = 'Creacion de registro cancelada'
-    this.Canceldado(titulo)
+  campoNoValido(nombreCampo: string) {
+    return this.miFormulario.controls[nombreCampo].errors &&
+      this.miFormulario.controls[nombreCampo].touched
   }
+
+
+
+  registrase(){
+
+    this.service.registro(this.miFormulario.getRawValue(),this.verimage[0]).subscribe((res)=>{
+      if(res.ok==true){
+        this.Completado('Usuario registrado con exito')
+        this.miFormulario.reset()
+        this.InputVar.nativeElement.value = "";
+        this.seccionimg = ""
+      }else{
+        this.Fallido('No se pudo registrar el usuario')
+        this.InputVar.nativeElement.value = "";
+        this.seccionimg = ""
+      }
+      
+    })
+    console.log(this.miFormulario.getRawValue());
+    
+
+  }
+
+
+
+
 
   evento(event: any) {
     const prueba = event.target.files[0]

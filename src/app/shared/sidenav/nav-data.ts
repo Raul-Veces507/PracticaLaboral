@@ -27,13 +27,8 @@ export const navbarData:INavbarData[] =[
 
         routeLink:'/Actividades',
         icon:'fa  fa-universal-access',
-        label:'Actividades'
-    },
-    {
-        routeLink:'/CrearUsuarios',
-        icon:'fa fa-users',
-        label:'Crear Usuarios',
-       
+        label:'Actividades',
+        
     },
     {
         routeLink:'/Apoyos',
@@ -42,6 +37,13 @@ export const navbarData:INavbarData[] =[
         label:'Apoyos',
       
     },
+    {
+        routeLink:'/CrearUsuarios',
+        icon:'fa fa-users',
+        label:'Crear Usuarios',
+       
+    }
+   
 
 ]
 

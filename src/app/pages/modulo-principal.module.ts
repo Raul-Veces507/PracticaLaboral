@@ -9,7 +9,7 @@ import { JovenesComponent } from './jovenes/jovenes.component';
 
 import { PrimeModuleModule } from '../prime-module/prime-module.module';
 import { RegistroComponent } from './jovenes/registro/registro.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [ActividadesComponent,ApoyosComponent,DashboardComponent,JovenesComponent,UsuariosComponent,RegistroComponent],
@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 PrimeModuleModule,
 CommonModule,
 FormsModule,
+ReactiveFormsModule
   ]
 })
 export class ModuloPrincipalModule { }
