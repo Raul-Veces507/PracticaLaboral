@@ -1,130 +1,59 @@
 <div class="container tex-center">
-<div class="row">
-    <div class="col">
-        <div class="grid p-fluid">
-            <div class="col-12 md:col-4">
-                <div class="p-inputgroup">
-                    <button type="button" pButton pRipple label="Buscar"></button>
-                    <input type="text" pInputText placeholder="Introduce cedula del niño a buscar">         
+    <div class="row">
+        <div class="col">
+            <div class="grid p-fluid">
+                <div class="col-12 md:col-4">
+                    <div class="p-inputgroup">
+                        <button (click)="buscar()" type="button" pButton pRipple label="Buscar"></button>
+                        <input style="width: 10%;" type="text" pInputText
+                            placeholder="Introduce cedula del niño a buscar">
+                    </div>
                 </div>
+
             </div>
-        
-    </div>
-
-    <div class="row  ">
-        <div class="col-8">
-            <div class="card align-items-center pt-4" style="width: 18rem;">
-                <img src="../../../assets/usuario.png " class="card-img-top w-50  " alt="...">
-                <div class="card-body">
-                    <h5 class="  card-tittle text-center">Nombre del niño</h5>
-                    <h6 class="card-subtitle   mb-2 text-muted ">el progreso la chorrera</h6>
-                    <div class="text-center pb-2 " style="border-top: black 1px solid  ; border-bottom:black 1px solid ; padding-top:5px;">
-                        <input class="mb-2"type="text" name="" placeholder="ingresar ">
-                        <a href="#" class="btn btn-primary mb-2">Ingresar actividad</a>
-                        <a href="#" class="btn btn-primary">Borrar actividad</a>
-                      </div>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
-                  
-              </div>
-
-
-
-             
         </div>
-        <div class="col-4"> 
-            <div class="card align-items-center pt-4" style="width: 18rem;">
-            <img src="../../../assets/usuario.png " class="card-img-top w-50  " alt="...">
-            <div class="card-body">
+    </div>
+    <br>
+
+    <div *ngIf="cardnino==true" class="text-center">
+
+
+        <p-card  styleClass="myClass">
+            <ng-template pTemplate="header">
+                <img src="../../../assets/usuario.png " style="width: 100px;" alt="...">
                 <h5 class="  card-tittle text-center">Nombre del niño</h5>
                 <h6 class="card-subtitle   mb-2 text-muted ">el progreso la chorrera</h6>
-                <div class="text-center pb-2 " style="border-top: black 1px solid  ; border-bottom:black 1px solid ; padding-top:5px;">
-                    <input class="mb-2"type="text" name="" placeholder="ingresar ">
-                    <a href="#" class="btn btn-primary mb-2">Ingresar actividad</a>
-                    <a href="#" class="btn btn-primary">Borrar actividad</a>
-                  </div>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            
-              
-          </div></div>
-        
-      </div>
-    <!-- <div class="row">
-        <div class="col-8">
-            <div class="card align-items-center pt-4" style="width: 18rem;">
-                <img src="../../../assets/usuario.png " class="card-img-top w-50  " alt="...">
-                <div class="card-body">
-                    <h5 class="  card-tittle text-center">Nombre del niño</h5>
-                    <h6 class="card-subtitle   mb-2 text-muted ">el progreso la chorrera</h6>
-                    <div class="text-center pb-2 " style="border-top: black 1px solid  ; border-bottom:black 1px solid ; padding-top:5px;">
-                        <input class="mb-2"type="text" name="" placeholder="ingresar ">
-                        <a href="#" class="btn btn-primary mb-2">Ingresar actividad</a>
-                        <a href="#" class="btn btn-primary">Borrar actividad</a>
-                      </div>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                
-                  
-              </div>
-                
-         </div>
+            </ng-template>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Actividad</label>
+                        <input type="text" class="form-control" autocomplete="off" id="apellido">
 
-         <div class="col-4">
-            <TABLE BORDER>
-                <TR><TH>Head1</TH>
-                    <TD>Item 1</TD> <TD>Item 2</TD> <TD>Item 3</TD></TR>
-                <TR><TH>Head2</TH>
-                    <TD>Item 4</TD> <TD>Item 5</TD> <TD>Item 6</TD></TR>
-                <TR><TH>Head3</TH>
-                    <TD>Item 7</TD> <TD>Item 8</TD> <TD>Item 9</TD></TR>
-            </TABLE>
 
-         </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Fecha de inicio</label>
+                        <input type="date" class="form-control" id="apellido2" autocomplete="off">
+
+
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button style="width: 50%; height: 50px;" pButton pRipple type="button" label="Registrar Actividad"
+                        class="p-button-help"></button>
+
+                </div>
+            </div>
+        </p-card>
+
+
+
+
+
+
+
+
     </div>
-    -->
-        
-    </div>
-  
-    <!-- <div class="col">
-        <TABLE BORDER>
-            <TR><TH>Head1</TH>
-                <TD>Item 1</TD> <TD>Item 2</TD> <TD>Item 3</TD></TR>
-            <TR><TH>Head2</TH>
-                <TD>Item 4</TD> <TD>Item 5</TD> <TD>Item 6</TD></TR>
-            <TR><TH>Head3</TH>
-                <TD>Item 7</TD> <TD>Item 8</TD> <TD>Item 9</TD></TR>
-        </TABLE>
-    </div> -->
-
-    
-</div>
-
-
-
-
-</div>
-
-
-
-
-
-
-
-<!-- <div class="container-lg-start">
-   <div class="card align-items-center pt-4" style="width: 18rem;">
-        <img src="../../../assets/usuario.png " class="card-img-top w-50  " alt="...">
-        <div class="card-body">
-            <h5 class="  card-tittle text-center">Nombre del niño</h5>
-            <h6 class="card-subtitle   mb-2 text-muted ">el progreso la chorrera</h6>
-            <div class="text-center pb-2 " style="border-top: black 1px solid  ; border-bottom:black 1px solid ; padding-top:5px;">
-                <input class="mb-2"type="text" name="" placeholder="ingresar ">
-                <a href="#" class="btn btn-primary mb-2">Ingresar actividad</a>
-                <a href="#" class="btn btn-primary">Borrar actividad</a>
-              </div>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        
-          
-      </div>
-        
-   </div>
-</div> -->
-

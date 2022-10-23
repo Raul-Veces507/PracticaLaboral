@@ -3,16 +3,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 .myClass {
-   margin-top: 100px;
-    width: 40vw;
-    height: 80%;
+   justify-content: center;
+   margin-left: 15%;
+    width: 45vw;
+    height: 82%;
  
  }
 
  @media (max-width: 600px) {
     .myClass {
         width: 90vw;
-        height: 70vw;
+        height: 120vw;
      }
 }
 

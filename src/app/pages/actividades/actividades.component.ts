@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActividadesComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  public date1:any
+  public cardnino:boolean=false
+    constructor() { }
+  
+    ngOnInit(): void {
+    }
+  
+  
+    buscar(){
+      this.cardnino=true
+    }
+  
 }
