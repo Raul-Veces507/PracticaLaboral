@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActividadesService } from '../../../services/actividades.service';
 
 @Component({
   selector: 'app-listado',
@@ -11,13 +12,16 @@ export class ListadoComponent implements OnInit {
   public ApoyoMaterial:boolean=false
   public ActividatesMAteriales:any
   public ActividatesEconomicas:any
-  constructor() { }
+  constructor(private sevice:ActividadesService) { }
 
   ngOnInit(): void {
   }
 
 
   Economico(){
+    this.sevice.ayudaEconomica().subscribe((res)=>{
+      this.ActividatesEconomicas=res['mensaje']
+    })
     this.ApoyoEconomico=true
     this.ApoyoMaterial=false
 
@@ -25,6 +29,9 @@ export class ListadoComponent implements OnInit {
 
   
   Material(){
+    this.sevice.ayudaMaterial().subscribe((res)=>{
+      this.ActividatesMAteriales=res['mensaje']
+    })
     this.ApoyoEconomico=false
     this.ApoyoMaterial=true
   }

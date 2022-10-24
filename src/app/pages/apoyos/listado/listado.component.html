@@ -41,9 +41,10 @@
             <tr>
                 <td>{{veh.Nombre}} </td>
                 <td>{{veh.Apellido}} </td>
-                <td>{{veh.Cedula}}</td>
-                <td>{{veh.Acudiente}}</td>
-     
+                <td>{{veh.CedulaNino}}</td>
+                <td>{{veh.TipoAyuda}}</td>
+                <td>$ {{veh.Costo}}</td>
+                <td>{{veh.Fecha | date}}</td>
     
 
             </tr>
@@ -81,10 +82,10 @@
             <tr>
                 <td>{{veh.Nombre}} </td>
                 <td>{{veh.Apellido}} </td>
-                <td>{{veh.Cedula}}</td>
-                <td>{{veh.Acudiente}}</td>
-           
-    
+                <td>{{veh.CedulaNino}}</td>
+                <td>{{veh.Materiales}}</td>
+                <td>{{veh.Donador}}</td>
+                <td>{{veh.Fecha |date}}</td>
 
             </tr>
         </ng-template>

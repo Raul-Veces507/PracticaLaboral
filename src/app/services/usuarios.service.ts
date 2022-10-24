@@ -36,5 +36,21 @@ export class UsuariosService {
   }
 
 
+  buscarJoven(data:any): Observable<any>{
+  
+
+    return  this.http.post<any>(`${url}buscarJoven`,data);
+  }
+
+  registrarApoyoMateral(data:any){
+    return  this.http.post<any>(`${url}registrarApoyoMateral`,data);
+  }
+  registrarApoyoEconomico(data:any){
+    return  this.http.post<any>(`${url}registrarApoyoEconomico`,data);
+  }
+
+  registrarActividad(data:any){
+    return  this.http.post<any>(`${url}registrarActividad`,data);
+  }
 
 }

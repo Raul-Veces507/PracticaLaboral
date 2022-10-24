@@ -13,11 +13,30 @@ export class ActividadesService {
 
   constructor(private http: HttpClient) { }
 
-  ayudaEconomica(data:any,file:any): Observable<any>{
+  ayudaEconomica(): Observable<any>{
    
-    return  this.http.get<any>(`${url}ayudaEconomica`,);
+    return  this.http.get<any>(`${url}ayudaEconomica`);
   }
 
+  ayudaMaterial(): Observable<any>{
+   
+    return  this.http.get<any>(`${url}ayudaMaterial`);
+  }
+
+
+  ActividadesFinalizadas(){
+    return  this.http.get<any>(`${url}ActividadesFinalizadas`);
+  }
+  
+  ActividadesPendientes(){
+    return  this.http.get<any>(`${url}ActividadesPendientes`);
+  }
+
+  FinalizarActividad(data:any){
+    return  this.http.post<any>(`${url}FinalizarActividad`,data);
+  }
+  
+  
 
   
 }
