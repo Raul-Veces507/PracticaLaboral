@@ -53,4 +53,26 @@ export class UsuariosService {
     return  this.http.post<any>(`${url}registrarActividad`,data);
   }
 
+  EditarSinImg(data:any,file:any){
+    // return  this.http.post<any>(`${url}editarsinimg`,data);
+
+
+    if(file==undefined){
+      
+    return this.http.post<any>(`${url}editarsinimg`,data)
+
+    }else{
+      const fd=new FormData;
+      fd.append('file',file,`${Math.random().toString(36).substring(2)}.jpg`)
+      fd.append("data", JSON.stringify(data))
+      return this.http.post<any>(`${url}ModificarConImg`,fd)
+    }
+
+  }
+
+
+  eliminarregistro(data:any){
+    return this.http.post<any>(`${url}eliminarregistro`,data)
+  }
+
 }

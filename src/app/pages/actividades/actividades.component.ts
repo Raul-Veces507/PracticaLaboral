@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { environment } from 'src/environments/environment';
 
+const url=environment.urlimg
 @Component({
   selector: 'app-actividades',
   templateUrl: './actividades.component.html',
@@ -14,7 +16,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService]
 })
 export class ActividadesComponent implements OnInit {
-
+public Foto:any
   public date1:any
   public cardnino:any
   public cedula:any
@@ -48,7 +50,8 @@ export class ActividadesComponent implements OnInit {
             if (res.ok == true) {
               this.nombre = res['mensaje'][0].Nombre
               this.Apellido = res['mensaje'][0].Apellido
-      
+              this.Foto = `${url}/${res['mensaje'][0].Foto}`
+
               this.cardnino = true
             } else {
               this.cedula=''

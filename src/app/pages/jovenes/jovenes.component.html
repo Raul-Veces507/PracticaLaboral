@@ -1,6 +1,4 @@
 
-
-
 <div class="container">
     <h2 style="text-align: center; padding: 35px; color:blue">Jovenes Registrados</h2>
 
@@ -24,7 +22,7 @@
                 <th pSortableColumn="cedula">Cedula <p-sortIcon field="cedula"></p-sortIcon></th>
                 <th pSortableColumn="Acudiente">Acudiente <p-sortIcon field="Acudiente"></p-sortIcon></th>
                 <th>Editar</th>
-                <th>Eliminar</th>
+   
       
               </tr>
         </ng-template>
@@ -36,8 +34,7 @@
                 <td>{{veh.Acudiente}}</td>
                 <td> <button (click)="Editar(veh.id)" icon="pi pi-user-edit"  pButton class="p-button-waring" type="button"
                         label="Editar"></button></td>
-                        <td> <button (click)="Eliminar(veh.id)" icon="pi pi-trash"  pButton class="p-button-danger" type="button"
-                            label="Eliminar"></button></td>
+                        
     
 
             </tr>
@@ -47,3 +44,7 @@
 
 
 </div>
+
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000">
+
+</p-confirmDialog>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../services/usuarios.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { environment } from 'src/environments/environment';
 
+const url=environment.urlimg
 @Component({
   selector: 'app-apoyos',
   templateUrl: './apoyos.component.html',
@@ -16,6 +18,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 export class ApoyosComponent implements OnInit {
   public date1: any
+  public Foto:any
   public cardnino: boolean = false
   public cedula: any
   public nombre: any
@@ -49,7 +52,7 @@ export class ApoyosComponent implements OnInit {
         if (res.ok == true) {
           this.nombre = res['mensaje'][0].Nombre
           this.Apellido = res['mensaje'][0].Apellido
-  
+          this.Foto = `${url}/${res['mensaje'][0].Foto}`
           this.cardnino = true
         } else {
           this.cedula=''
