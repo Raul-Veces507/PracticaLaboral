@@ -52,7 +52,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Cedula</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Cedula" type="text" class="form-control" id="cedula" autocomplete="off">
+                    <input oninput="this.value = this.value.replace(/[^0-9-]/,'')"  formControlName="Cedula" type="text" class="form-control" id="cedula" autocomplete="off">
                     <span *ngIf="campoNoValido('Cedula')" class="form-text text-danger">*coloque una cedula 
                         valida
                     </span>

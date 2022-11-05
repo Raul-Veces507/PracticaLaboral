@@ -57,6 +57,7 @@ public formulari:any
     Cedula: ['', [Validators.required]],
     sexo: ['', [Validators.required]],
     Nacimiento: ['', [Validators.required]],
+    FamilairResponsable: ['', [Validators.required]],
     Familiar: ['', [Validators.required]],
     Direccion: ['', [Validators.required]],
     Organo: ['', [Validators.required]],

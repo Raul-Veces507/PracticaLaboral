@@ -12,6 +12,8 @@ import { RegistroComponent } from './jovenes/registro/registro.component';
 import { ListadoComponent } from './apoyos/listado/listado.component';
 
 import { ListadoActividadComponent } from './actividades/listado-actividad/listado-actividad.component';
+import { CapacitacionesComponent } from './capacitaciones/capacitaciones.component';
+import { ListadoCapComponent } from './capacitaciones/listado-cap/listado-cap.component';
 
 const rutas: Routes = [
   {
@@ -28,8 +30,8 @@ const rutas: Routes = [
       { path: 'CrearUsuarios', component: UsuariosComponent },
       { path: 'editarJoven/:id', component: EditorComponent},
       { path: 'joven/RegistrarJoven', component: RegistroComponent },
-
-
+      { path: 'Cap/Capacitaciones', component: CapacitacionesComponent},
+      { path: 'Cap/ListadoCapacitacion', component: ListadoCapComponent },
     ]
   }
 ];

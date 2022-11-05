@@ -75,4 +75,30 @@ export class UsuariosService {
     return this.http.post<any>(`${url}eliminarregistro`,data)
   }
 
+
+  capacitacion(){
+    return this.http.get<any>(`${url}capacitacion`)
+  }
+
+  Listcapacitacion(id:any){
+    return this.http.post<any>(`${url}Listcapacitacion`,id)
+  }
+
+  registrarCap(data:any){
+    return this.http.post<any>(`${url}registarCap`,data)
+  }
+
+
+
+  CapacitacionesFinalizadas(){
+    return  this.http.get<any>(`${url}CapacitacionesFinalizadas`);
+  }
+  
+  CapacitacionesPendientes(){
+    return  this.http.get<any>(`${url}CapacitacionesPendientes`);
+  }
+
+  FinalizarCapacitacion(data:any){
+    return  this.http.post<any>(`${url}FinalizarCapacitacion`,data);
+  }
 }

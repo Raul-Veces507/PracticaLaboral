@@ -82,4 +82,10 @@ export class SidenavComponent implements OnInit {
       }
     }
   }
+
+
+  Salir(){
+    console.log('hola');
+    
+  }
 }
