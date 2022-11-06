@@ -8,7 +8,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Primer Nombre</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="nombre1" type="text" class="form-control"  autocomplete="off" id="nombre">
+                    <input  formControlName="nombre1" type="text" class="form-control"  autocomplete="off" id="nombre">
                     <span *ngIf="campoNoValido('nombre1')" class="form-text text-danger">*coloque un nombre
                         valido
                     </span>
@@ -18,7 +18,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Segundo Nombre</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="nombre2" type="text"  class="form-control" autocomplete="off" id="nombre2">
+                    <input  formControlName="nombre2" type="text"  class="form-control" autocomplete="off" id="nombre2">
                    
 
                 </div>
@@ -29,7 +29,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Primer Apellido</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="apellido1"  type="text"  class="form-control" autocomplete="off"
+                    <input  formControlName="apellido1"  type="text"  class="form-control" autocomplete="off"
                         id="apellido">
                         <span *ngIf="campoNoValido('apellido1')" class="form-text text-danger">*coloque un apellido
                             valido
@@ -40,7 +40,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Segundo Apellido</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="apellido2" type="text" class="form-control" id="apellido2" autocomplete="off"
+                    <input  formControlName="apellido2" type="text" class="form-control" id="apellido2" autocomplete="off"
                         >
                   
 
@@ -91,7 +91,7 @@
             <div class="col-md-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Familiar Responsable</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Familiar" type="text" class="form-control"  id="celular" autocomplete="off">
+                    <input  formControlName="Familiar" type="text" class="form-control"  id="celular" autocomplete="off">
                     <span *ngIf="campoNoValido('Familiar')" class="form-text text-danger">*coloque un Familar
                    
                     </span>
@@ -105,7 +105,7 @@
             <div class="col-6">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Direccíon</label>
-                    <input oninput="this.value = this.value.replace(/[^a-zA-Z0-9\s]/,'')"  formControlName="Direccion" type="text"  class="form-control" id="direccion"
+                    <input  formControlName="Direccion" type="text"  class="form-control" id="direccion"
                     autocomplete="off">
                     <span *ngIf="campoNoValido('Direccion')" class="form-text text-danger">*coloque una Direccion
                         valida
@@ -165,7 +165,7 @@
 
         </div>
         <div class="row g-3">
-            <div class="col-6">
+            <div class="col-4">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Etnia</label>
                     <select formControlName="Etnia" id="tipoc" class="form-select">
@@ -188,7 +188,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <div class="mb-3">
                     <label for="recipient-name" class="col-form-label">Motivo de ingreso</label>
                     <select formControlName="Motivo" id="tipoc" class="form-select">
@@ -210,8 +210,54 @@
                     </span>
                 </div>
             </div>
-            
+            <div class="col-4">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Familiares</label>
+                    <select (change)="Capturar($event)" id="tipoc" class="form-select">
+                        <option>Seleccione una opcion</option>
+                        <option value="1">Si</option>
+                        <option value="2">No</option>
 
+                        
+                        
+                        
+                        
+                    </select>
+               
+                </div>
+            </div>
+
+        </div>
+
+        <div class="table-responsive text-center" *ngIf="Familares">
+            <button (click)="showModalDialog()"  style="width: 20% ;" pButton pRipple type="button" label="Agregar Familiar"
+            class="p-button-raised p-button-help"></button>
+            <br>
+            <br>
+
+            <table class="table table-bordered table-hover ">
+                <thead >
+                  <tr>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Parentesco</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Eliminar</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of Familia">
+                        <th scope="col">{{item.cedula}}</th>
+                        <th scope="col">{{item.ParentescoNomb}}</th>
+                        <th scope="col">{{item.Nombre}}</th>
+                        <th scope="col">{{item.Edad}}</th>
+                        <th>
+                            <button (click)="Eliminar(item)" pButton pRipple type="button" label="Eliminar" class="p-button-danger"></button>
+                        </th>
+                      </tr>
+                 
+                </tbody>
+              </table>
         </div>
         <br>
         <div class="text-center">
@@ -258,4 +304,37 @@
 
           <!-- Toast de eventos -->
           <p-toast position="bottom-center"></p-toast>
+
+          <p-dialog header="Familiares" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Parentesco</label>
+        <select [(ngModel)]="parent"  id="tipoc" class="form-select">
+            <option>Seleccione una opcion</option>
+            <option *ngFor="let item of Parentesco index" [value]="item.id">{{item.Nombre}}</option>
+   
+        </select>
+ 
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Nombre Completo del Familiar</label>
+        <input  [(ngModel)]="name"  type="text" class="form-control"  autocomplete="off" id="nombre">
+
+
+    </div>
+
+    <div class="mb-3">
+        <label for="recipient-name" class="col-form-label">Edad</label>
+        <input  [(ngModel)]="edad"   type="number" class="form-control"  autocomplete="off" id="nombre">
+
+
+    </div>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-ban" (click)="displayModal=false" label="Cancelar" styleClass="p-button-text"></p-button>
+        <p-button icon="pi pi-check" (click)="RegistrarFamiliar()"  label="Registrar" styleClass="p-button-text"></p-button>
+       
+        </ng-template>
+</p-dialog>
 </div>

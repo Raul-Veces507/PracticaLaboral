@@ -29,12 +29,17 @@ export class ApoyosComponent implements OnInit {
   public Monto: any
   public apoyoMaterial: boolean = false
   public apoyoEconomico: boolean = false
-
+  public Apoyo: any
+  public Materiales: any
+  
   constructor(private service: UsuariosService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,) { }
 
   ngOnInit(): void {
+    this.service.obtenerApoyos().subscribe((res)=>{
+this.Apoyo=res['mensaje']
+    })
   }
 
 
@@ -47,7 +52,7 @@ export class ApoyosComponent implements OnInit {
       }
   
       this.service.buscarJoven(body).subscribe((res) => {
-        console.log(res);
+
   
         if (res.ok == true) {
           this.nombre = res['mensaje'][0].Nombre
@@ -64,6 +69,8 @@ export class ApoyosComponent implements OnInit {
 
   }
 
+
+
   capturar(data: any) {
     const evento = data.target.value
 
@@ -73,6 +80,15 @@ export class ApoyosComponent implements OnInit {
       this.TipoApoyo = ''
       this.Monto = ''
     } else {
+      this.apoyoEconomico = false
+      const body={
+        id:evento
+      }
+      this.service.ObtenerApoyosDisp(body).subscribe((res)=>{
+        this.Materiales =res['mensaje']
+ 
+        
+      })
       this.Donador = ''
       this.Material = ''
       this.apoyoMaterial = true
@@ -91,6 +107,12 @@ export class ApoyosComponent implements OnInit {
       if (res.ok == true) {
 
         this.Completado('Apoyo Registrado con exito')
+        this.cardnino = false
+        this.Donador = ''
+        this.Material = ''
+        this.apoyoMaterial = false
+        this.apoyoEconomico = false
+        this.cedula=''
       } else {
         this.Fallido('No se pudo registrar el Apoyo')
       }
@@ -107,7 +129,14 @@ export class ApoyosComponent implements OnInit {
       Monto: this.Monto
     }
     this.service.registrarApoyoEconomico(body).subscribe((res) => {
+
       if (res.ok == true) {
+        this.cardnino = false
+        this.Donador = ''
+        this.Material = ''
+        this.apoyoMaterial = false
+        this.apoyoEconomico = false
+        this.cedula=''
         this.Completado('Apoyo Registrado con exito')
       } else {
         this.Fallido('No se pudo registrar el Apoyo')

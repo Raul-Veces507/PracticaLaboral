@@ -17,12 +17,14 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { PrimeModuleModule } from './prime-module/prime-module.module';
 import { ModuloPrincipalModule } from './pages/modulo-principal.module';
+import { LogoutComponent } from './logout/logout.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 @NgModule({
   declarations: [
     AppComponent,
+    LogoutComponent,
 
 
   ],

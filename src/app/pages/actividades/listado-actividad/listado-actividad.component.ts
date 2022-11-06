@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActividadesService } from '../../../services/actividades.service';
+
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { UsuariosService } from '../../../services/usuarios.service';
+import { ActividadesService } from '../../../services/actividades.service';
+
 
 @Component({
   selector: 'app-listado-actividad',
@@ -14,6 +17,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
   providers: [ConfirmationService, MessageService]
 })
 export class ListadoActividadComponent implements OnInit {
+  
   public pendiente: any
   public finaliaza: any
   public ActPendiente: boolean = false
@@ -31,7 +35,7 @@ export class ListadoActividadComponent implements OnInit {
   }
 
   actividadPEndiente(){
-    this.service.ActividadesPendientes().subscribe((res) => {
+    this.service.ActividadesPendientes ().subscribe((res) => {
 
 
       this.pendiente = res['mensaje']
@@ -52,12 +56,12 @@ export class ListadoActividadComponent implements OnInit {
     const body={
       id:data
     }
-    this.service.FinalizarActividad(body).subscribe((res)=>{
+    this.service.FinalizarActividad (body).subscribe((res)=>{
       if(res.ok==true){
         this.actividadPEndiente()
         this.Completado('Actividad Finalizada')
       }else{
-        this.Completado('No se pudo Finalizar la Actividad')
+        this.Fallido('No se pudo Finalizar la Actividad')
       }
     
     })

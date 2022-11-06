@@ -63,25 +63,25 @@ export const navbarData:INavbarData[] =[
         ]
       
     },
-    {
-        routeLink:'/Cap',
-        icon:'fa fa-book',
-        label:'Capacitaciones',
-        items:[
-            {
-                routeLink:'Cap/Capacitaciones',
-                icon:'fa fa-user-plus',
-                label:'Registrar Cap',
-            },
-            {
-                routeLink:'Cap/ListadoCapacitacion',
-                icon:'fa fa-user-plus',
-                label:'Listado de Cap',
-            }
+        // {
+        //     routeLink:'/Cap',
+        //     icon:'fa fa-book',
+        //     label:'Capacitaciones',
+        //     items:[
+        //         {
+        //             routeLink:'Cap/Capacitaciones',
+        //             icon:'fa fa-user-plus',
+        //             label:'Registrar Cap',
+        //         },
+        //         {
+        //             routeLink:'Cap/ListadoCapacitacion',
+        //             icon:'fa fa-user-plus',
+        //             label:'Listado de Cap',
+        //         }
+            
+        //     ]
         
-        ]
-      
-    },
+        // },
     {
         routeLink:'salir',
         icon:'far fa-power-off',

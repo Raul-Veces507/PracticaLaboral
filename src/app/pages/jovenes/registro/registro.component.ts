@@ -22,28 +22,27 @@ export class RegistroComponent implements OnInit {
   @ViewChild('takeInput', { static: false })
   InputVar: any;
   public verimage: any = []
-  public productos: any;
-  public Seccioncrear = ''
   public filterName = '';
-  public bodega = localStorage.getItem('bodega');
-  public displayModal: boolean = false;
-  public displayModal1: boolean = false;
-  public categorias: any
-public formulari:any
+  public formulari: any
   public seccionimg = ''
-  public idmenu: any
-
+  public Parentesco: any
+  public displayModal: boolean = false;
+  public Familares: boolean = false;
+  public parent: any
+  public name: any
+  public edad: any
+  public Familia: any = []
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private sanitizer: DomSanitizer,
     private fb: FormBuilder,
-    private service:UsuariosService) { }
+    private service: UsuariosService) { }
 
-  
-    ngOnInit(): void {
-  
-    }
+
+  ngOnInit(): void {
+
+  }
 
 
 
@@ -51,13 +50,12 @@ public formulari:any
 
   miFormulario: FormGroup = this.fb.group({
     nombre1: ['', [Validators.required]],
-    nombre2: ['', ],
+    nombre2: ['',],
     apellido1: ['', [Validators.required]],
-    apellido2: ['', ],
+    apellido2: ['',],
     Cedula: ['', [Validators.required]],
     sexo: ['', [Validators.required]],
     Nacimiento: ['', [Validators.required]],
-    FamilairResponsable: ['', [Validators.required]],
     Familiar: ['', [Validators.required]],
     Direccion: ['', [Validators.required]],
     Organo: ['', [Validators.required]],
@@ -66,7 +64,7 @@ public formulari:any
     Etnia: ['', [Validators.required]],
     Motivo: ['', [Validators.required]],
     imagen: ['', []],
- 
+
 
 
 
@@ -79,23 +77,40 @@ public formulari:any
 
 
 
-  registrase(){
+  registrase() {
 
-    this.service.registro(this.miFormulario.getRawValue(),this.verimage[0]).subscribe((res)=>{
-      if(res.ok==true){
+    this.service.registro(this.miFormulario.getRawValue(), this.verimage[0]).subscribe((res) => {
+      if (res.ok == true) {
+
+        const bod2y={
+          Familia:this.Familia
+        }
+          
+            this.service.RegistraFamiliar(bod2y).subscribe((res)=>{
+       if(res.ok==true){
         this.Completado('Usuario registrado con exito')
         this.miFormulario.reset()
         this.InputVar.nativeElement.value = "";
         this.seccionimg = ""
-      }else{
+        this.Familares = false
+        this.Familia=''
+       }else{
+        this.Fallido('No se pudo registrar el usuario')
+        this.InputVar.nativeElement.value = "";
+        this.seccionimg = ""
+       }
+          
+        })
+      
+      } else {
         this.Fallido('No se pudo registrar el usuario')
         this.InputVar.nativeElement.value = "";
         this.seccionimg = ""
       }
-      
+
     })
-    console.log(this.miFormulario.getRawValue());
-    
+
+
 
   }
 
@@ -154,5 +169,116 @@ public formulari:any
   })
 
 
+  Capturar(data: any) {
+    const valor = data.target.value
+
+    if (valor == 1) {
+      this.Familares = true
+    } else {
+      this.Familares = false
+    }
+
+
+
+  }
+
+  showModalDialog() {
+
+    this.displayModal = true
+    this.service.ObtenerParentesco().subscribe((res) => {
+      this.Parentesco = res['mensaje']
+    })
+  }
+
+
+  RegistrarFamiliar() {
+   
+    const Data = this.miFormulario.getRawValue()
+
+    if (Data['Cedula'] == '' || Data['Cedula'] == undefined) {
+      this.Fallido('Ingrese la cedula del muchacho al formulario')
+    } else {
+
+      if(this.parent==0 ||this.parent=='' ||this.name=='' ||this.name==undefined ||this.edad==0 ||this.edad==''){
+        this.Fallido('Debe llenar todo los campos')
+      }else{
+        let nombreValue:any;
+      
+        switch (this.parent) {
+          case "1":
+            nombreValue = "Padre";
+            break;
+          case "2":
+            nombreValue = "Madre  o paterna";
+            break;
+          case "3":
+            nombreValue = "Abuela materna o paterna";
+            break;
+          case "4":
+            nombreValue = "Abuelo materna o paterno";
+            break;
+          case "5":
+            nombreValue = "Tía";
+            break;
+          case "6":
+            nombreValue = "Tío";
+            break;
+          case "7":
+            nombreValue = "Hermanos";
+            break;
+          case "8":
+            nombreValue = "Hermanastros";
+            break;
+          case "9":
+            nombreValue = "Abuelastro";
+            break;
+          case "10":
+            nombreValue = "Abuelastra";
+     
+        }
   
+        const body = {
+          cedula: Data['Cedula'],
+          Parentesco: this.parent,
+          ParentescoNomb: nombreValue,
+          Nombre: this.name,
+          Edad: this.edad
+        }
+
+  
+        this.Familia.push(body)
+        
+        this.parent=0,
+  
+        this.name='',
+        this.edad=''
+
+       
+      }
+  
+  
+
+
+
+    }
+
+  }
+
+
+
+  ObtenerFamiliar(Cedula: any) {
+    const data = {
+      Cedula: Cedula
+    }
+    this.service.ObtenerFamiliar(data).subscribe((res) => {
+
+
+    })
+  }
+
+  Eliminar(data:any){
+  
+    var indice = this.Familia.indexOf(data); 
+    this.Familia.splice(indice, 1);
+  }
 }

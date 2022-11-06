@@ -16,86 +16,109 @@ const url=environment.urlimg
   providers: [ConfirmationService, MessageService]
 })
 export class ActividadesComponent implements OnInit {
-public Foto:any
-  public date1:any
-  public cardnino:any
-  public cedula:any
-  public nombre:any
-  public apellido:any
-  public Apellido:boolean=false
-  public TipoActividad:any
-  public inicio:any
-
-    constructor(private service:UsuariosService,
-      private confirmationService: ConfirmationService,
-    private messageService: MessageService) { }
-    
+  public date1: any
+  public Foto:any
+  public cardnino: boolean = false
+  public cedula: any
+  public nombre: any
+  public Apellido: any
+  public TipoCap: any=0
+  public Capacitacion:any
+  public ListCapacitacion:any
+  public ListCap: any=0
   
-    ngOnInit(): void {
-    }
-  
-  
-    buscar(){
-   
-        if(this.cedula==''|| this.cedula==undefined){
-          this.Fallido('Ingrese un numero de cedula')
-        }else{
-          const body = {
-            Cedula: this.cedula
-          }
+  constructor(private service: UsuariosService,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,) { }
+
+  ngOnInit(): void {
+    this.service.actividades().subscribe((res)=>{
+      this.Capacitacion=res['mensaje']
+ 
       
-          this.service.buscarJoven(body).subscribe((res) => {
-            console.log(res);
-      
-            if (res.ok == true) {
-              this.nombre = res['mensaje'][0].Nombre
-              this.Apellido = res['mensaje'][0].Apellido
-              this.Foto = `${url}/${res['mensaje'][0].Foto}`
-
-              this.cardnino = true
-            } else {
-              this.cedula=''
-              this.Fallido('usuario no encontrado')
-            }
-          })
-        }
-       
-    
-      
-    
-    }
-
-    RegistrarActividad(){
-const body={
-  cedula:this.cedula,
-  actividad:this.TipoActividad,
-  inicio:this.inicio
-}
-
-this.service.registrarActividad(body).subscribe((res)=>{
-
-  if (res.ok == true) {
-    this.cedula=''
-    this.TipoActividad=''
-    this.inicio=''
-    this.cardnino = false
-
-    this.Completado('Actividad Registrada con exito')
-  } else {
-    this.Fallido('No se pudo registrar La Actividad')
+    })
   }
 
 
-})
+  buscar() {
+    if(this.cedula==''|| this.cedula==undefined){
+      this.Fallido('Ingrese un numero de cedula')
+    }else{
+      const body = {
+        Cedula: this.cedula
+      }
+  
+      this.service.buscarJoven(body).subscribe((res) => {
+    
+  
+        if (res.ok == true) {
+          this.nombre = res['mensaje'][0].Nombre
+          this.Apellido = res['mensaje'][0].Apellido
+          this.Foto = `${url}/${res['mensaje'][0].Foto}`
+          this.cardnino = true
+        } else {
+          this.cedula=''
+          this.Fallido('usuario no encontrado')
+        }
+      })
+    }
+   
+
+  }
+
+  capturar(data: any) {
+    const evento = data.target.value
+    const body={
+      id:evento
+    }
+    this.service.Listactividades(body).subscribe((res)=>{
+   
+      this.ListCapacitacion=res['mensaje']
+    })
+  }
+
+
+
+
+  registrarCap(){
+
+
+    if(this.TipoCap==0 || this.ListCap==0 ||this.date1=='' || this.date1==undefined){
+      this.Fallido('Rellenar todo los campos')
+    }else{
+      const body = {
+        cedula: this.cedula,
+        Capacitacio:this.TipoCap,
+        LisCap:this.ListCap,
+        FechaInicio:this.date1
+       
+      }
+
+      this.service.registrarCap(body).subscribe((res)=>{
+   
+        if(res.ok==true){
+          this.cardnino = false
+           this.cedula=''
+          this.TipoCap=0
+          this.ListCap=0
+         this.date1=''
+          this.Completado('Capacitacion completada')
+        }else{
+          this.Fallido('No se pudo registrar la accion')
+        }
+      })
     }
 
-    Completado(titulo: any) {
+   
+  }
 
-      this.messageService.add({ severity: 'success', summary: 'success', detail: titulo });
-    }
-  
-    Fallido(titulo: any) {
-  
-      this.messageService.add({ severity: 'error', summary: 'Error', detail: titulo });
-    }
+  Completado(titulo: any) {
+
+    this.messageService.add({ severity: 'success', summary: 'success', detail: titulo });
+  }
+
+  Fallido(titulo: any) {
+
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: titulo });
+  }
 }

@@ -26,7 +26,7 @@ export class JovenesComponent implements OnInit {
 
   table() {
     this.service.muchachos().subscribe((res) => {
-      console.log(res);
+
       if (res.ok == true) {
 
         this.usuario = res['mensaje']

@@ -1,11 +1,12 @@
 <div class="container tex-center">
+    <h2 style="color: rgb(29, 110, 202);" class="text-center">Registar Actividad</h2><br>
     <div class="row">
         <div class="col">
             <div class="grid p-fluid">
                 <div class="col-12 md:col-4">
                     <div class="p-inputgroup">
                         <button (click)="buscar()" type="button" pButton pRipple label="Buscar"></button>
-                        <input [(ngModel)]="cedula" style="width: 10%;" type="text" pInputText
+                        <input style="width: 10%;" [(ngModel)]="cedula"  oninput="this.value = this.value.replace(/[^0-9]/,'-')" type="text" pInputText
                             placeholder="Introduce cedula del niño a buscar">
                     </div>
                 </div>
@@ -14,6 +15,7 @@
         </div>
     </div>
     <br>
+    <br>
 
     <div *ngIf="cardnino==true" class="text-center">
 
@@ -21,15 +23,31 @@
         <p-card  styleClass="myClass">
             <ng-template pTemplate="header">
                 <img src="{{Foto}}" style="width: 100px; margin-top: 20px;" alt="...">
-                <br>
-                <h5 class="card-tittle text-center">{{nombre}} {{Apellido}}</h5>
+                <h5 class="  card-tittle text-center">{{nombre}} {{Apellido}}</h5>
             </ng-template>
+
+            <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Tipo de actividad</label>
+                <select [(ngModel)]="TipoCap"(change)="capturar($event)"   id="tipoc" class="form-select">
+                    <option value="0">Seleccione una Opcion</option>
+                    <option *ngFor="let item of Capacitacion" [value]="item.id" >{{item.Nombre}}</option>
+               
+
+                </select>
+
+
+            </div>
+            <br>
             <div  class="row g-3">
             
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Tipo de Actividad</label>
-                        <input [(ngModel)]="TipoActividad" type="text" class="form-control" autocomplete="off" id="apellido">
+                        <label for="recipient-name" class="col-form-label">Tipo de actividad</label>
+                        <select [(ngModel)]="ListCap" class="form-select">
+                            <option value="0">Seleccione una Opcion</option>
+                            <option *ngFor="let item of ListCapacitacion" [value]="item.id" >{{item.Nombre}}</option>
+                       
+                        </select>
 
 
                     </div>
@@ -37,19 +55,20 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Fecha de inicio</label>
-                        <input [(ngModel)]="inicio" type="date"  class="form-control" id="apellido2" autocomplete="off">
+                        <input type="date" [(ngModel)]="date1" class="form-control" id="apellido2" autocomplete="off">
 
 
                     </div>
                 </div>
             </div>
             <br>
-                <div class="text-center">
-                    <button (click)="RegistrarActividad()" style="width: 50%; height: 50px;" pButton pRipple type="button" label="Registrar Actividad"
-                        class="p-button-help"></button>
+            <div class="text-center">
+                <button  (click)="registrarCap()" style="width: 50%; height: 50px;" pButton pRipple type="button" label="Registrar Actividad"
+                    class="p-button-help"></button>
 
-      
-            </div>
+  
+        </div>
+
         </p-card>
 
 
@@ -58,6 +77,5 @@
 
 
 
-    </div>
-    
-    <p-toast position="bottom-center"></p-toast>
+    </div>      <!-- Toast de eventos -->
+      <p-toast position="bottom-center"></p-toast>

@@ -29,10 +29,9 @@
             <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Tipo de apoyo</label>
                 <select (change)="capturar($event)"   id="tipoc" class="form-select">
-                    <option ></option>
-                    <option value="1">Economico</option>
-                    <option value="2">Material</option>
-                    <option value="3">Bolsas de comidas</option>
+                    <option >Seleccione una opcion</option>
+                    <option *ngFor="let item of Apoyo" [value]="item.id">{{item.Nombre}}</option>
+          
                 </select>
 
 
@@ -42,9 +41,14 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Material</label>
-                        <input [(ngModel)]="Material" type="text" class="form-control" autocomplete="off" id="apellido">
+                       
 
-
+                        <select  [(ngModel)]="Material"  id="tipoc" class="form-select">
+                            <option >Seleccione una opcion</option>
+                            <option *ngFor="let item of Materiales" [value]="item.id">{{item.Nombre}}</option>
+                  
+                        </select>
+        
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -18,7 +18,7 @@
 
 
                     <i class="sidenav-link-icon" [class]="data.icon"></i>
-                    <span (click)="Salir()" class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+                    <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
                         {{data.label}}
                     </span>
                     <i *ngIf="data.items && collapsed"
@@ -36,20 +36,13 @@
                     <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
                         [routerLinkActiveOptions]="{exact: true}"
                         *ngIf="!data.items || (data.items && data.items.length===0)" (click)="shrinkItems(data)">
-                        <div *ngIf="data.label=='Salir';else normal">
+                   
 
-                            <i (click)="Salir()" class="sidenav-link-icon" [class]="data.icon"></i>
-                            <span (click)="Salir()" class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
-                                {{data.label}}
-                            </span>
-                        </div>
-
-                        <ng-template #normal>
                             <i class="sidenav-link-icon" [class]="data.icon"></i>
                             <span  class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
                                 {{data.label}}
                             </span>
-                        </ng-template>
+                        
                         
                       
                     </a>

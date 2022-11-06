@@ -76,12 +76,12 @@ export class UsuariosService {
   }
 
 
-  capacitacion(){
-    return this.http.get<any>(`${url}capacitacion`)
+  actividades(){
+    return this.http.get<any>(`${url}actividades`)
   }
 
-  Listcapacitacion(id:any){
-    return this.http.post<any>(`${url}Listcapacitacion`,id)
+  Listactividades(id:any){
+    return this.http.post<any>(`${url}Listactividades`,id)
   }
 
   registrarCap(data:any){
@@ -101,4 +101,27 @@ export class UsuariosService {
   FinalizarCapacitacion(data:any){
     return  this.http.post<any>(`${url}FinalizarCapacitacion`,data);
   }
+
+
+  ObtenerParentesco(){
+    return  this.http.get<any>(`${url}ObtenerParentesco`);
+  }
+
+  RegistraFamiliar(data:any){
+    return  this.http.post<any>(`${url}RegistraFamiliar`,data);
+  }
+
+  ObtenerFamiliar(data:any){
+    return  this.http.post<any>(`${url}ObtenerFamiliar`,data);
+  }
+
+  obtenerApoyos(){
+    return  this.http.get<any>(`${url}obtenerApoyos`);
+  }
+
+  ObtenerApoyosDisp(data:any){
+    return  this.http.post<any>(`${url}ObtenerApoyosDisp`,data);
+  }
+
+  
 }

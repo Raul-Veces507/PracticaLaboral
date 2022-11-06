@@ -165,8 +165,7 @@ this.data()
     }
 
     this.service.EditarSinImg(body,this.verimage[0]).subscribe((res) => {
-      console.log(res);
-      
+
       if (res.ok == true) {
         this.data()
         this.Completado('Usuario modificado con exito')
