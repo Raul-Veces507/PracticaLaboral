@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   // url:'http://192.168.1.106:4000/'
-  url:'http://192.168.0.14:4000/',
- urlimg:'http://192.168.0.14/CiudadNino'
+  url:'http://192.168.88.144:4000/',
+ urlimg:'http://192.168.88.144/CiudadNino'
 };
 
 /*

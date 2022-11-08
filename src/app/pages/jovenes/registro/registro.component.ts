@@ -266,15 +266,6 @@ export class RegistroComponent implements OnInit {
 
 
 
-  ObtenerFamiliar(Cedula: any) {
-    const data = {
-      Cedula: Cedula
-    }
-    this.service.ObtenerFamiliar(data).subscribe((res) => {
-
-
-    })
-  }
 
   Eliminar(data:any){
   

@@ -111,8 +111,13 @@ export class UsuariosService {
     return  this.http.post<any>(`${url}RegistraFamiliar`,data);
   }
 
-  ObtenerFamiliar(data:any){
-    return  this.http.post<any>(`${url}ObtenerFamiliar`,data);
+  agregarFamiliar(data:any){
+    return  this.http.post<any>(`${url}agregarFamiliar`,data);
+  }
+
+
+  ObtenerFamilar(data:any){
+    return  this.http.post<any>(`${url}ObtenerFamilar`,data);
   }
 
   obtenerApoyos(){
@@ -122,6 +127,16 @@ export class UsuariosService {
   ObtenerApoyosDisp(data:any){
     return  this.http.post<any>(`${url}ObtenerApoyosDisp`,data);
   }
+
+  eliminarFamiliar(data:any){
+    return  this.http.post<any>(`${url}eliminarFamiliar`,data);
+  }
+
+
+  
+  
+
+ 
 
   
 }
