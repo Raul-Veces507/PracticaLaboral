@@ -17,7 +17,7 @@
         <p-table #dt1 [value]="pendiente " dataKey="id" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
         [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [lazy]="false"
-        [globalFilterFields]="['idusuario','nombodega','nombre','apellido','telefono']">
+        [globalFilterFields]="['Nombre','Apellido','tipoCap','subCap']">
         <ng-template pTemplate="caption">
             <div class="p-d-flex">
                 <span class="p-input-icon-left p-ml-auto">
@@ -29,12 +29,12 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                <th pSortableColumn="apellido">Apellido <p-sortIcon field="apellido"></p-sortIcon></th>
-                <th pSortableColumn="cedula">Cedula <p-sortIcon field="cedula"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Actividad <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Detalle <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Fecha de inicio <p-sortIcon field="Acudiente"></p-sortIcon></th>
+                <th pSortableColumn="Nombre">Nombre <p-sortIcon field="Nombre"></p-sortIcon></th>
+                <th pSortableColumn="Apellido">Apellido <p-sortIcon field="Apellido"></p-sortIcon></th>
+                <th pSortableColumn="Cedula">Cedula <p-sortIcon field="Cedula"></p-sortIcon></th>
+                <th pSortableColumn="tipoCap">Actividad <p-sortIcon field="tipoCap"></p-sortIcon></th>
+                <th pSortableColumn="subCap">Detalle <p-sortIcon field="subCap"></p-sortIcon></th>
+                <th pSortableColumn="FechaInicio">Fecha de inicio <p-sortIcon field="FechaInicio"></p-sortIcon></th>
                 <th>Finalizar</th>
                
       
@@ -63,7 +63,7 @@
     <p-table #dt1 [value]="finaliaza " dataKey="id" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
     [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [lazy]="false"
-    [globalFilterFields]="['idusuario','nombodega','nombre','apellido','telefono']">
+    [globalFilterFields]="['Nombre','Apellido','tipoCap','subCap']">
     <ng-template pTemplate="caption">
         <div class="p-d-flex">
             <span class="p-input-icon-left p-ml-auto">
@@ -75,13 +75,13 @@
     </ng-template>
     <ng-template pTemplate="header">
         <tr>
-            <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                <th pSortableColumn="apellido">Apellido <p-sortIcon field="apellido"></p-sortIcon></th>
-                <th pSortableColumn="cedula">Cedula <p-sortIcon field="cedula"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Actividad <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Detalle <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Fecha de inicio <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Fecha de Fin <p-sortIcon field="Acudiente"></p-sortIcon></th>
+            <th pSortableColumn="Nombre">Nombre <p-sortIcon field="Nombre"></p-sortIcon></th>
+            <th pSortableColumn="Apellido">Apellido <p-sortIcon field="Apellido"></p-sortIcon></th>
+            <th pSortableColumn="Cedula">Cedula <p-sortIcon field="Cedula"></p-sortIcon></th>
+            <th pSortableColumn="tipoCap">Actividad <p-sortIcon field="tipoCap"></p-sortIcon></th>
+            <th pSortableColumn="subCap">Detalle <p-sortIcon field="subCap"></p-sortIcon></th>
+            <th pSortableColumn="FechaInicio">Fecha de inicio <p-sortIcon field="FechaInicio"></p-sortIcon></th>
+                <th pSortableColumn="FechaFin">Fecha de Fin <p-sortIcon field="FechaFin"></p-sortIcon></th>
   
           </tr>
     </ng-template>

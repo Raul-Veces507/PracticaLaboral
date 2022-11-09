@@ -17,7 +17,7 @@
     <p-table #dt1 [value]="ActividatesEconomicas" dataKey="id" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
         [rowsPerPageOptions]="[10,25,50]" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [lazy]="false"
-        [globalFilterFields]="['idusuario','nombodega','nombre','apellido','telefono']">
+        [globalFilterFields]="['Nombre','Apellido','CedulaNino','TipoAyuda','Costo']">
         <ng-template pTemplate="caption">
             <div class="p-d-flex">
                 <span class="p-input-icon-left p-ml-auto">
@@ -29,12 +29,12 @@
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="nombre">Nombre <p-sortIcon field="nombre"></p-sortIcon></th>
-                <th pSortableColumn="apellido">Apellido <p-sortIcon field="apellido"></p-sortIcon></th>
-                <th pSortableColumn="cedula">Cedula <p-sortIcon field="cedula"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Tipo de Apoyo <p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Cantidad<p-sortIcon field="Acudiente"></p-sortIcon></th>
-                <th pSortableColumn="Acudiente">Fecha<p-sortIcon field="Acudiente"></p-sortIcon></th>
+                <th pSortableColumn="Nombre">Nombre <p-sortIcon field="Nombre"></p-sortIcon></th>
+                <th pSortableColumn="Apellido">Apellido <p-sortIcon field="Apellido"></p-sortIcon></th>
+                <th pSortableColumn="CedulaNino">Cedula <p-sortIcon field="CedulaNino"></p-sortIcon></th>
+                <th pSortableColumn="TipoAyuda">Tipo de Apoyo <p-sortIcon field="TipoAyuda"></p-sortIcon></th>
+                <th pSortableColumn="Costo">Cantidad<p-sortIcon field="Costo"></p-sortIcon></th>
+                <th pSortableColumn="Fecha">Fecha<p-sortIcon field="Fecha"></p-sortIcon></th>
               </tr>
         </ng-template>
         <ng-template pTemplate="body" let-veh>
